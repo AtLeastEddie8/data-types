@@ -54,8 +54,20 @@ fn main() {
     {
         let tup: (i32, f64, u8) = (500, 6.4, 1);
         let (x, y, z) = tup;
+        //str did not work but char did 
+        let tup2: (i32, u32, char) = (99, 23, '!');
+        let (a, b, c) = tup2;
 
         println!("i32 = {x}, f64 = {y}, u8 = {z}");
+        println!("tup2 = {a}, {b}, {c} ");
+        //cant find a way to cycle through a tup using a loop without having the size defined 
+        //can do with indexing such as in arrays like tup2.0
     }
-
+    //The Array Type
+    {
+        let a = [1, 2, 3, 4, 5];
+        let months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+        let b = [3; 6];
+    }
 }
