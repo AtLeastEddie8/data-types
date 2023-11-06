@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     {
         //guess in this context needs a data type otherwise error
@@ -66,8 +68,35 @@ fn main() {
     //The Array Type
     {
         let a = [1, 2, 3, 4, 5];
+        println!("a = {:?}", a);
         let months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
         let b = [3; 6];
+
+        let a = [8;5];
+        println!("months = {:?}", months);
+        println!("a = {:?}", a);
+        println!("b = {:?}", b);
     }
+    // ... Invalid Array Element Access
+    {
+        let a = [1, 2, 3, 4, 5];
+
+        println!("Please enter an array index.");
+
+        let mut index = String::new();
+
+        io::stdin()
+            .read_line(&mut index)
+            .expect("Failed to read line");
+
+        let index: usize = index
+            .trim()
+            .parse()
+            .expect("Index entered was not a number");
+
+        let element = a[index];
+        //panics if the index is greater than the size of the array
+        println!("The value of the element at index {index} is: {element}");
+        }
 }
